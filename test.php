@@ -1,3 +1,5 @@
+<!-- http://localhost/RentalSite/test.php -->
+
 <?php
 // Include your database connection script
 include 'db_connection.php';
