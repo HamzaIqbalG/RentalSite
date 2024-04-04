@@ -1,0 +1,1 @@
+<!--Shows all rental groups and allows users to select one to view details. -->
