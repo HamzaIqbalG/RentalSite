@@ -3,18 +3,23 @@
     http://localhost/phpmyadmin -->
 
 
-<?php
+    <?php
+// It's good to have PHP open tag at the top to prevent any unintended output before sending HTTP headers
+
+// Database configuration parameters
 $servername = "localhost";
-$username = "root"; // default XAMPP username
-$password = ""; // default XAMPP password is empty
+$username = "root";
+$password = "";
 $dbname = "rentalDB";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
+  // Connected successfully - For production, consider logging this internally or simply remove it.
 } catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+  // Connection failed - For production, consider logging this and giving a generic error message to the user.
+  error_log($e->getMessage()); // Log error message to a file or error monitoring system
+  exit('Database connection error'); // Provide a generic error message to the user
 }
 ?>
+
