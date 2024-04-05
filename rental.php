@@ -9,46 +9,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Our Rental Property Listing</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a CSS file for styling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Rental Management System</title>
+
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="Property Rental Logo"> <!-- Place your logo here -->
-        <nav>
-            <ul>
-                <li><a href="rental.php">Home</a></li>
-                <li><a href="properties.php">Property Listings</a></li>
-                <li><a href="rental_groups.php">Rental Groups</a></li>
-                <li><a href="average_rents.php">Average Rents</a></li>
-                <li><a href="update_preferences.php">Update Preferences</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Rental</span> Management System</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="rental.php">Home</a></li>
+                    <li><a href="properties.php">Properties</a></li>
+                    <li><a href="rental_groups.php">Rental Groups</a></li>
+                    <li><a href="update_preferences.php">Update Preferences</a></li>
+                    <li><a href="average_rents.php">Average Rents</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
-    <main>
-        <section class="welcome-banner">
-            <h1>Welcome to Your New Home!</h1>
-            <p>Find the perfect rental property from our wide selection of houses, apartments, and rooms.</p>
-            <!-- Optional: Search bar could be placed here if implemented -->
-        </section>
-        
-        <section class="feature-properties">
-            <!-- Optional: Show some featured properties -->
-        </section>
 
-        <section class="about-us">
-            <h2>About Us</h2>
-            <p>We are committed to helping you find the perfect rental. Learn more about our services and how we can help you.</p>
-            <a href="#" class="btn">Learn More</a> <!-- Link to an about page if you have one -->
-        </section>
-    </main>
-    
-    <footer>
-        <?php include 'footer.html'; ?>
-    </footer>
+    <section class="showcase">
+        <div class="container">
+            <h1>Welcome to Your New Rental Experience</h1>
+            <p>Find your perfect property today</p>
+        </div>
+    </section>
+
+    <!-- space after the image and before footnote -->
+    <section class="content-space">
+    <div class="container">
+        <!-- Add your text or any other content here -->
+        <h2>Discover Your Ideal Home</h2>
+        <p>Explore a diverse selection of properties tailored to fit your lifestyle. Whether you're looking for a cozy studio apartment 
+            or a spacious family house, our Rental Management System simplifies your search. 
+            Update your rental group preferences with ease, browse through detailed listings, and compare average rents to find the 
+            best match. Start your journey towards a hassle-free rental experience with us today!</p>
+    </div>
+    </section>
+
+    <!-- including the footnote -->
+    <?php include 'footer.html'; ?>
+
 </body>
 </html>
+
 
 
 
