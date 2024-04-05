@@ -10,8 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Rental Management System</title>
+    <title>Home page</title>
 
+    <!-- linking the css file to rental.php so that it automatically gets the header, footer, and other UI changes -->
     <link rel="stylesheet" href="styles.css">
 
 </head>
