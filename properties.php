@@ -48,16 +48,22 @@ $conn = null;
 <head>
     <meta charset="UTF-8">
     <title>Rental Properties</title>
-    <style>
+
+    <!-- linking the css file to rental.php so that it automatically gets the header, footer, and other UI changes -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- <style>
         /* Simple CSS to make the table look nicer */
         body { font-family: Arial, sans-serif; }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background-color: #f2f2f2; }
         tr:hover { background-color: #e8f4ff; }
-    </style>
+    </style> -->
 </head>
 <body>
+    <!-- including the header -->
+    <?php include 'header.html'; ?>
     <h1>Rental Properties</h1>
     <table>
         <thead>
@@ -77,6 +83,8 @@ $conn = null;
             <?php endforeach; ?>
         </tbody>
     </table>
+    <!-- including the footnote -->
+    <?php include 'footer.html'; ?>
 </body>
 </html>
 
