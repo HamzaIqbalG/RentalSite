@@ -5,94 +5,50 @@
 <!-- This link gives access to homepage
     http://localhost/RentalSite/rental.php -->
 
-    
-    
-    
-    <?php
-include 'db_connection.php';
-
-$properties = [];
-$error_message = '';
-
-try {
-    $stmt = $conn->prepare(
-        "SELECT 
-            p.ID AS PropertyID, 
-            CONCAT(o.FName, ' ', o.LName) AS OwnerName, 
-            CONCAT(m.FName, ' ', m.LName) AS ManagerName
-        FROM 
-            Property p
-        INNER JOIN 
-            PropertyOwner po ON p.ID = po.PropertyID
-        INNER JOIN 
-            Person o ON po.OwnerID = o.ID
-        INNER JOIN 
-            Manager man ON p.ManagerID = man.ID
-        INNER JOIN 
-            Person m ON man.ID = m.ID"
-    );
-    
-    $stmt->execute();
-    $properties = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-    $error_message = "Database error: " . $e->getMessage();
-}
-
-$conn = null;
-?>
-
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rental Properties Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Welcome to Our Rental Property Listing</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a CSS file for styling -->
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Rental Properties Platform</h1>
+        <img src="images/logo.png" alt="Property Rental Logo"> <!-- Place your logo here -->
         <nav>
             <ul>
                 <li><a href="rental.php">Home</a></li>
-                <li><a href="properties.php">Properties</a></li>
-                <li><a href="update_preferences.php">Update Preferences</a></li>
+                <li><a href="properties.php">Property Listings</a></li>
+                <li><a href="rental_groups.php">Rental Groups</a></li>
                 <li><a href="average_rents.php">Average Rents</a></li>
+                <li><a href="update_preferences.php">Update Preferences</a></li>
             </ul>
         </nav>
     </header>
+    
     <main>
-        <section>
-            <h2>List of Properties</h2>
-            <?php if ($error_message): ?>
-                <p class="error"><?php echo $error_message; ?></p>
-            <?php else: ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Property ID</th>
-                            <th>Owner Name</th>
-                            <th>Manager Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($properties as $property): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($property['PropertyID']); ?></td>
-                            <td><?php echo htmlspecialchars($property['OwnerName']); ?></td>
-                            <td><?php echo htmlspecialchars($property['ManagerName']); ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php endif; ?>
+        <section class="welcome-banner">
+            <h1>Welcome to Your New Home!</h1>
+            <p>Find the perfect rental property from our wide selection of houses, apartments, and rooms.</p>
+            <!-- Optional: Search bar could be placed here if implemented -->
+        </section>
+        
+        <section class="feature-properties">
+            <!-- Optional: Show some featured properties -->
+        </section>
+
+        <section class="about-us">
+            <h2>About Us</h2>
+            <p>We are committed to helping you find the perfect rental. Learn more about our services and how we can help you.</p>
+            <a href="#" class="btn">Learn More</a> <!-- Link to an about page if you have one -->
         </section>
     </main>
+    
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> Rental Properties, Inc.</p>
+        <?php include 'footer.html'; ?>
     </footer>
 </body>
 </html>
+
 
 
