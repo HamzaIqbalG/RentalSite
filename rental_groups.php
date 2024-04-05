@@ -27,6 +27,8 @@ try {
 
 <?php include 'header.html'; ?>
 
+<section class = 'content-wrapper'>
+<div class = 'container'>
 <h2>Rental Groups</h2>
 <ul>
     <?php foreach ($rentalGroups as $group): ?>
@@ -77,6 +79,8 @@ if (isset($_GET['group_id'])) {
     <?php endif;
 }
 ?>
+</div>
+</section>
 
 <?php include 'footer.html'; ?>
 

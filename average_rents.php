@@ -26,15 +26,22 @@ try {
     <!-- linking the css file to rental.php so that it automatically gets the header, footer, and other UI changes -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
+<body>
 <?php include 'header.html'; ?>
 
-<h2>Average Monthly Rent for All Properties</h2>
-<p>The average monthly rent for all properties is: <?php echo number_format((float)$averageRent, 2, '.', ''); ?></p>
+<!-- space after the image and before footnote -->
+<section class="content-wrapper">
+    <div class="container">
+        <!-- Add your text or any other content here -->
+        <h2>Average Monthly Rent for All Properties</h2>
+        <p>The average monthly rent for all properties is: <?php echo number_format((float)$averageRent, 2, '.', ''); ?></p>
+    </div>
+</section>
+
 
 <?php include 'footer.html'; ?>
-
 </body>
+
 </html>
 

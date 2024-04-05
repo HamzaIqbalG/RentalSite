@@ -11,6 +11,17 @@ body {
     overflow: hidden;
 }
 
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 /* ------------------------------------------ HEADER SECTION ------------------------------------------- */
 header {
     background: #50b3a2;
@@ -95,7 +106,10 @@ header a:hover {
     text-align: center; /* Optional: if you want to center the text */
 }
 
-
+/* Ensures that the content takes up the full space and pushes the footer down */
+.content-wrapper {
+  flex: 1;
+}
 
 /* ------------------------------------------ FOOTER SECTION ------------------------------------------- */
 footer {
@@ -147,4 +161,13 @@ footer {
       font-size: 0.7em; /* Even smaller font size for smaller screens */
     }
   }
+
+
+/* ------------------------------------------ TABLE FOR PROPERTIES.PHP ------------------------------------------- */
+  /* Simple CSS to make the table look nicer */
+  /* body { font-family: Arial, sans-serif; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+  th { background-color: #f2f2f2; }
+  tr:hover { background-color: #e8f4ff; } */
   

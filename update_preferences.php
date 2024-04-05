@@ -65,7 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include 'header.html'; ?>
 
-<h2>Update Rental Group Preferences</h2>
+<section class = 'content-wrapper'>
+    <div class = 'container'>
+    <h2>Update Rental Group Preferences</h2>
 
 <?php if ($message): ?>
     <p><?php echo $message; ?></p>
@@ -108,6 +110,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Update Preferences</button>
     </div>
 </form>
+
+</div>
+</section>
 
 <?php include 'footer.html'; ?>
 

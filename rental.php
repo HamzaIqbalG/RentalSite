@@ -17,22 +17,8 @@
 
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Rental</span> Management System</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="rental.php">Home</a></li>
-                    <li><a href="properties.php">Properties</a></li>
-                    <li><a href="rental_groups.php">Rental Groups</a></li>
-                    <li><a href="update_preferences.php">Update Preferences</a></li>
-                    <li><a href="average_rents.php">Average Rents</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!-- including the header -->
+<?php include 'header.html'; ?>
 
     <section class="showcase">
         <div class="container">
