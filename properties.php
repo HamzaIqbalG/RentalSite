@@ -2,47 +2,82 @@
 <!-- http://localhost/RentalSite/properties.php -->
 
 <?php
+// Include the database connection file
 include 'db_connection.php';
 
-// The SQL query to fetch property IDs, owner names, and manager names, if they exist.
-$sql = "SELECT p.ID as PropertyID, 
-               CONCAT(o.FName, ' ', o.LName) as OwnerName, 
-               CONCAT(m.FName, ' ', m.LName) as ManagerName 
-        FROM Property p
-        JOIN PropertyOwner po ON p.ID = po.PropertyID
-        JOIN Owner ow ON po.OwnerID = ow.ID
-        JOIN Person o ON ow.ID = o.ID
-        LEFT JOIN Manager mg ON p.ManagerID = mg.ID
-        LEFT JOIN Person m ON mg.ID = m.ID";
+// Initialize an empty array to hold property data
+$properties = [];
 
 try {
-    $stmt = $conn->prepare($sql);
+    // Prepare SQL query to retrieve property information with owner and manager details
+    $stmt = $conn->prepare(
+        "SELECT 
+            Property.ID AS PropertyID, 
+            Person.FName AS OwnerFirstName, 
+            Person.LName AS OwnerLastName, 
+            ManagerPerson.FName AS ManagerFirstName, 
+            ManagerPerson.LName AS ManagerLastName
+        FROM 
+            Property
+        JOIN 
+            PropertyOwner ON Property.ID = PropertyOwner.PropertyID
+        JOIN 
+            Person ON PropertyOwner.OwnerID = Person.ID
+        JOIN 
+            Manager ON Property.ManagerID = Manager.ID
+        JOIN 
+            Person AS ManagerPerson ON Manager.ID = ManagerPerson.ID"
+    );
+
+    // Execute the query
     $stmt->execute();
-    
-    // Set the resulting array to associative
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Begin HTML output
-    echo "<table>";
-    echo "<tr><th>Property ID</th><th>Owner Name</th><th>Manager Name</th></tr>";
-
-    // Loop through each row to create a table row
-    foreach ($result as $row) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['PropertyID']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['OwnerName']) . "</td>";
-        // Check if ManagerName is not null before displaying
-        echo "<td>" . (isset($row['ManagerName']) ? htmlspecialchars($row['ManagerName']) : 'N/A') . "</td>";
-        echo "</tr>";
-    }
-    
-    echo "</table>";
-} catch(PDOException $e) {
-    // For production, you might want to handle this more gracefully
-    echo "Error: " . $e->getMessage();
+    // Fetch all the results
+    $properties = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    // Handle any potential database errors
+    die("Database error: " . $e->getMessage());
 }
 
-// Close the connection
+// Close connection
 $conn = null;
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rental Properties</title>
+    <style>
+        /* Simple CSS to make the table look nicer */
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        tr:hover { background-color: #e8f4ff; }
+    </style>
+</head>
+<body>
+    <h1>Rental Properties</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Property ID</th>
+                <th>Owner Name</th>
+                <th>Manager Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($properties as $property): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($property['PropertyID']); ?></td>
+                <td><?php echo htmlspecialchars($property['OwnerFirstName'] . " " . $property['OwnerLastName']); ?></td>
+                <td><?php echo htmlspecialchars($property['ManagerFirstName'] . " " . $property['ManagerLastName']); ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+</html>
+
 
