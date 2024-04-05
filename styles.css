@@ -64,62 +64,87 @@ header a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.showcase h1, .showcase p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Add shadow to text for better visibility */
+}
+
 .showcase h1 {
     font-size: 55px;
     margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px; /*  rounded corners */
 }
+
 .showcase p {
     font-size: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px; /* rounded corners */
 }
+
+
+
+/* ------------------------------------------ CONTENT SPACE SECTION for main page ------------------------------------------- */
+.content-space {
+    padding: 50px 0; /* Adjust the value as needed for spacing */
+    background: #f4f4f4; /* Optional: if you want a different background color */
+    text-align: center; /* Optional: if you want to center the text */
+}
+
+
 
 /* ------------------------------------------ FOOTER SECTION ------------------------------------------- */
 footer {
     background: #333;
     color: #fff;
-    padding-top: 30px;
-    min-height: 200px;
+    padding: 20px 0; /* Reduced overall padding */
     border-top: #e8491d 3px solid;
-}
-.footer-content {
+  }
+  
+  .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 20px;
-}
-.footer-section {
-    flex: 1;
-    padding: 0 20px;
-}
-.footer-section h2 {
-    color: #e8491d;
-}
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-.footer-section ul li {
-    padding-bottom: 10px;
-}
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-.footer-section ul li a:hover {
-    color: #e8491d;
-}
-.footer-bottom {
+    justify-content: space-around; /* Centered content since there are fewer items */
+    align-items: center; /* Align items vertically in the center */
+    text-align: center; /* Center text alignment */
+  }
+  
+  .footer-section {
+    padding: 0 15px; /* Adjust padding to reduce whitespace */
+  }
+  
+  .footer-section h2, .footer-section p {
+    margin: 5px 0; /* Reduce margin between elements */
+  }
+  
+  .footer-section.about,
+  .footer-section.contact-form {
+    flex: 1; /* Allows each section to fill equal space */
+  }
+  
+  .footer-bottom {
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Reduced bottom padding */
     background: #222;
     color: #fff;
-}
-
-/* ------------------------------------------ MEDIA QUERIES ------------------------------------------- */
-@media (max-width: 768px) {
+    font-size: 0.8em; /* Reduce font size if needed */
+  }
+  
+  /* ------------------------------------------ RESPONSIVE DESIGN FOR FOOTER ------------------------------------------- */
+  @media (max-width: 768px) {
     .footer-content {
-        flex-direction: column;
+      flex-direction: column; /* Stack footer sections on top of each other */
     }
+  
     .footer-section {
-        margin-bottom: 20px;
+      margin-bottom: 20px; /* Add space between stacked sections */
     }
-}
+  
+    .footer-bottom {
+      font-size: 0.7em; /* Even smaller font size for smaller screens */
+    }
+  }
+  
