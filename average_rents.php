@@ -23,7 +23,8 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Average Rent</title>
-    <!-- Include your stylesheet here -->
+    <!-- linking the css file to rental.php so that it automatically gets the header, footer, and other UI changes -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
