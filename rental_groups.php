@@ -70,13 +70,29 @@ try {
             }
 
             // If details for the group are found, display them in a table
-            if ($groupDetails): ?>
-                <!-- Heading for the group details section -->
-                <h3>Details for Group <?php echo htmlspecialchars($_GET['group_id']); ?></h3>
-                <!-- Table to display the detailed information for the group -->
-                <table class="group-details-table">
-                    <!-- Table headers -->
-                    <tr>
+            if ($groupDetails) {
+                // Heading for the group details section
+                echo "<h3>Preferences for Group - " . htmlspecialchars($_GET['group_id']) . "</h3>";
+                
+                // Fetch and display names of persons in the rental group
+                $stmt = $conn->prepare("SELECT FName, LName FROM Person JOIN Renter ON Person.ID = Renter.ID WHERE RentalGroupCode = :code");
+                $stmt->bindParam(':code', $_GET['group_id'], PDO::PARAM_INT);
+                $stmt->execute();
+                $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                if ($persons) {
+                    echo "Persons in this group: ";
+                    $names = [];
+                    foreach ($persons as $person) {
+                        $names[] = htmlspecialchars($person['FName']) . " " . htmlspecialchars($person['LName']);
+                    }
+                    echo implode(", ", $names);
+                }
+
+                // Table to display the detailed information for the group
+                echo "<table class='group-details-table'>";
+                // Table headers
+                echo "<tr>
                         <th>Parking</th>
                         <th>Accessibility</th>
                         <th>Cost</th>
@@ -84,19 +100,19 @@ try {
                         <th>Bathrooms</th>
                         <th>Laundry</th>
                         <th>Type</th>
-                    </tr>
-                    <!-- Table row displaying the information for the group -->
-                    <tr>
-                        <td><?php echo htmlspecialchars($groupDetails['Parking']); ?></td>
-                        <td><?php echo htmlspecialchars($groupDetails['Accessibility']); ?></td>
-                        <td><?php echo htmlspecialchars($groupDetails['Cost']); ?></td>
-                        <td><?php echo htmlspecialchars($groupDetails['Bedrooms']); ?></td>
-                        <td><?php echo htmlspecialchars($groupDetails['Bathrooms']); ?></td>
-                        <td><?php echo htmlspecialchars($groupDetails['Laundry']); ?></td>
-                        <td><?php echo htmlspecialchars($groupDetails['typeAcc']); ?></td>
-                    </tr>
-                </table>
-            <?php endif; // End if statement for group details
+                      </tr>";
+                // Table row displaying the information for the group
+                echo "<tr>
+                        <td>" . htmlspecialchars($groupDetails['Parking']) . "</td>
+                        <td>" . htmlspecialchars($groupDetails['Accessibility']) . "</td>
+                        <td>" . htmlspecialchars($groupDetails['Cost']) . "</td>
+                        <td>" . htmlspecialchars($groupDetails['Bedrooms']) . "</td>
+                        <td>" . htmlspecialchars($groupDetails['Bathrooms']) . "</td>
+                        <td>" . htmlspecialchars($groupDetails['Laundry']) . "</td>
+                        <td>" . htmlspecialchars($groupDetails['typeAcc']) . "</td>
+                      </tr>";
+                echo "</table>";
+            } // End if statement for group details
         } // End if statement for checking 'group_id'
         ?>
     </div>
