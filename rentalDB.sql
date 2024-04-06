@@ -60,7 +60,7 @@ CREATE TABLE Property (
     FOREIGN KEY (ManagerID) REFERENCES Manager(ID) ON DELETE CASCADE
 );
 
-ALTER TABLE Property ADD Type VARCHAR(50) NOT NULL;
+--ALTER TABLE Property ADD Type VARCHAR(50) NOT NULL;
 
 -- Creation of the Owner table
 CREATE TABLE Owner (
@@ -172,12 +172,12 @@ INSERT INTO Manager VALUES
 -- Inserting data into Property table
 -- Making sure ManagerID and RentalGroupCode are valid
 INSERT INTO Property VALUES
-(1, 'Wheelchair ramp', 'Y', '2023-01-01', 2, 3, '123 Main St', '101', 'ON', 'Toronto', 'M5H3M7', 1, 13, 2000.00, '2023-01-15', '2024-01-14', '2022-12-01', 'House'),
-(2, 'None', 'N', '2023-01-02', 1, 2, '456 Secondary Rd', NULL, 'ON', 'Ottawa', 'K1P1J9', 2, 14, 1800.00, '2023-09-12', '2024-09-12', '2022-12-02', 'Apartment'),
-(3, 'Elevator', 'Y', '2023-01-03', 2, 3, '789 Market Ave', '202', 'BC', 'Vancouver', 'V6B4N9', 3, 15, 2500.00, '2023-02-01', '2024-01-31', '2023-01-01', 'House'),
-(4, 'None', 'N', '2023-02-04', 1, 1, '321 Hill Valley', '4A', 'QC', 'Montreal', 'H1A2B2', 4, 16, 1200.00, '2023-02-15', '2024-02-14', '2023-02-01', 'Room'),
-(5, 'Elevator', 'Y', '2023-03-01', 3, 4, '159 Bay Street', '1501', 'ON', 'Toronto', 'M5J2T2', 5, 17, 3500.00, '2023-03-15', '2024-03-14', '2023-03-01', 'House'),
-(6, 'None', 'N', '2023-04-01', 1, 2, '456 Rural Rd', '6B', 'AB', 'Calgary', 'T2P5M5', 6, 18, 1300.00, '2023-04-15', '2024-04-14', '2023-04-01', 'Room');
+(1, 'Wheelchair ramp', 'Y', '2023-01-01', 2, 3, '123 Main St', '101', 'ON', 'Toronto', 'M5H3M7', 1, 13, 2000.00, '2023-01-15', '2024-01-14', '2022-12-01'),
+(2, 'None', 'N', '2023-01-02', 1, 2, '456 Secondary Rd', NULL, 'ON', 'Ottawa', 'K1P1J9', 2, 14, 1800.00, '2023-09-12', '2024-09-12', '2022-12-02'),
+(3, 'Elevator', 'Y', '2023-01-03', 2, 3, '789 Market Ave', '202', 'BC', 'Vancouver', 'V6B4N9', 3, 15, 2500.00, '2023-02-01', '2024-01-31', '2023-01-01'),
+(4, 'None', 'N', '2023-02-04', 1, 1, '321 Hill Valley', '4A', 'QC', 'Montreal', 'H1A2B2', 4, 16, 1200.00, '2023-02-15', '2024-02-14', '2023-02-01'),
+(5, 'Elevator', 'Y', '2023-03-01', 3, 4, '159 Bay Street', '1501', 'ON', 'Toronto', 'M5J2T2', 5, 17, 3500.00, '2023-03-15', '2024-03-14', '2023-03-01'),
+(6, 'None', 'N', '2023-04-01', 1, 2, '456 Rural Rd', '6B', 'AB', 'Calgary', 'T2P5M5', 6, 18, 1300.00, '2023-04-15', '2024-04-14', '2023-04-01');
 
 -- Inserting data into Owner table
 -- Making sure IDs match those in the Person table
