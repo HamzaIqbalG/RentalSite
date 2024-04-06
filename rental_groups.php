@@ -27,63 +27,64 @@ try {
 
 <?php include 'header.html'; ?>
 
-<section class = 'content-wrapper'>
-<div class = 'container'>
-<h2>Rental Groups</h2>
-<ul>
-    <?php foreach ($rentalGroups as $group): ?>
-        <li>
-            <a href="rental_groups.php?group_id=<?php echo htmlspecialchars($group['Code']); ?>">
-                Group <?php echo htmlspecialchars($group['Code']); ?>
-            </a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+<section class='content-wrapper'>
+    <div class='container'>
+        <h2>Rental Groups</h2>
+        <ul class="rental-groups-list">
+            <?php foreach ($rentalGroups as $group): ?>
+            <li>
+                <a href="rental_groups.php?group_id=<?php echo htmlspecialchars($group['Code']); ?>">
+                    Group <?php echo htmlspecialchars($group['Code']); ?>
+                </a>
+            </li>
+            <?php endforeach; ?>
+        </ul>
 
-<?php
-// If a specific rental group is selected, fetch its detailed information
-if (isset($_GET['group_id'])) {
-    try {
-        $stmt = $conn->prepare("SELECT * FROM RentalGroup WHERE Code = :code");
-        $stmt->bindParam(':code', $_GET['group_id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $groupDetails = $stmt->fetch(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-        exit;
-    }
+        <?php
+        // If a specific rental group is selected, fetch its detailed information
+        if (isset($_GET['group_id'])) {
+            try {
+                $stmt = $conn->prepare("SELECT * FROM RentalGroup WHERE Code = :code");
+                $stmt->bindParam(':code', $_GET['group_id'], PDO::PARAM_INT);
+                $stmt->execute();
+                $groupDetails = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                exit;
+            }
 
-    // Display details if a group is selected
-    if ($groupDetails): ?>
-        <h3>Details for Group <?php echo htmlspecialchars($_GET['group_id']); ?></h3>
-        <table>
-            <tr>
-                <th>Parking</th>
-                <th>Accessibility</th>
-                <th>Cost</th>
-                <th>Bedrooms</th>
-                <th>Bathrooms</th>
-                <th>Laundry</th>
-                <th>Type</th>
-            </tr>
-            <tr>
-                <td><?php echo htmlspecialchars($groupDetails['Parking']); ?></td>
-                <td><?php echo htmlspecialchars($groupDetails['Accessibility']); ?></td>
-                <td><?php echo htmlspecialchars($groupDetails['Cost']); ?></td>
-                <td><?php echo htmlspecialchars($groupDetails['Bedrooms']); ?></td>
-                <td><?php echo htmlspecialchars($groupDetails['Bathrooms']); ?></td>
-                <td><?php echo htmlspecialchars($groupDetails['Laundry']); ?></td>
-                <td><?php echo htmlspecialchars($groupDetails['typeAcc']); ?></td>
-            </tr>
-        </table>
-    <?php endif;
-}
-?>
-</div>
+            // Display details if a group is selected
+            if ($groupDetails): ?>
+                <h3>Details for Group <?php echo htmlspecialchars($_GET['group_id']); ?></h3>
+                <table class="group-details-table">
+                    <tr>
+                        <th>Parking</th>
+                        <th>Accessibility</th>
+                        <th>Cost</th>
+                        <th>Bedrooms</th>
+                        <th>Bathrooms</th>
+                        <th>Laundry</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td><?php echo htmlspecialchars($groupDetails['Parking']); ?></td>
+                        <td><?php echo htmlspecialchars($groupDetails['Accessibility']); ?></td>
+                        <td><?php echo htmlspecialchars($groupDetails['Cost']); ?></td>
+                        <td><?php echo htmlspecialchars($groupDetails['Bedrooms']); ?></td>
+                        <td><?php echo htmlspecialchars($groupDetails['Bathrooms']); ?></td>
+                        <td><?php echo htmlspecialchars($groupDetails['Laundry']); ?></td>
+                        <td><?php echo htmlspecialchars($groupDetails['typeAcc']); ?></td>
+                    </tr>
+                </table>
+            <?php endif;
+        }
+        ?>
+    </div>
 </section>
 
 <?php include 'footer.html'; ?>
 
 </body>
 </html>
+
 
