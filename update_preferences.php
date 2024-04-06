@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare($sql);
         
         // Bind parameters to statement variables
-        $stmt->bindParam(':group code', $groupCode);
+        $stmt->bindParam(':groupCode', $groupCode);
         $stmt->bindParam(':parking', $parking);
         $stmt->bindParam(':accessibility', $accessibility);
         $stmt->bindParam(':cost', $cost);
