@@ -15,15 +15,15 @@ $avgRentHouses = $avgRentApartments = $avgRentRooms = 0;
 //I hope this still shows you I know what to do...
 try {
     // Get the average rent for houses
-    $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property JOIN House ON Property.ID = House.PropertyID");
+    $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property WHERE Type = 'House'");
     $avgRentHouses = $stmt->fetch(PDO::FETCH_ASSOC)['AverageRent'];
 
     // Get the average rent for apartments
-    $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property JOIN Apartment ON Property.ID = Apartment.PropertyID");
+    $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property WHERE Type = 'Apartment'");
     $avgRentApartments = $stmt->fetch(PDO::FETCH_ASSOC)['AverageRent'];
 
     // Get the average rent for rooms
-    $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property JOIN Room ON Property.ID = Room.PropertyID");
+    $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property WHERE Type = 'Room'");
     $avgRentRooms = $stmt->fetch(PDO::FETCH_ASSOC)['AverageRent'];
 
 } catch (PDOException $e) {
