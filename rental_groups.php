@@ -3,37 +3,48 @@
 <!-- http://localhost/RentalSite/rental_groups.php -->
 
 <?php
+// Include the database connection script
 include 'db_connection.php';
 
-// Fetch all rental groups
+// Attempt to fetch all rental groups from the database
 try {
+    // Query to select rental group data
     $stmt = $conn->query("SELECT Code, Parking, Accessibility, Cost, Bedrooms, Bathrooms, Laundry, typeAcc FROM RentalGroup");
+    // Fetch all the results into an array
     $rentalGroups = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
+    // If an error occurs, output the error message and exit the script
     echo "Error: " . $e->getMessage();
     exit;
 }
-
-// HTML header and opening of the body tag
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Title for the rental groups page -->
     <title>Rental Groups</title>
+    <!-- Link to the external CSS for styling -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Include the header HTML from an external file -->
 <?php include 'header.html'; ?>
 
+<!-- Content section for displaying rental groups -->
 <section class='content-wrapper'>
     <div class='container'>
+        <!-- Heading for the rental groups section -->
         <h2>Rental Groups</h2>
+        <!-- Unordered list to display rental groups as clickable links -->
         <ul class="rental-groups-list">
+            <!-- Loop through each rental group and display them in the list -->
             <?php foreach ($rentalGroups as $group): ?>
             <li>
+                <!-- Create a link that passes the group's code as a parameter in the URL -->
                 <a href="rental_groups.php?group_id=<?php echo htmlspecialchars($group['Code']); ?>">
+                    <!-- Display the group's code with special characters converted to HTML entities to prevent XSS -->
                     Group <?php echo htmlspecialchars($group['Code']); ?>
                 </a>
             </li>
@@ -41,22 +52,30 @@ try {
         </ul>
 
         <?php
-        // If a specific rental group is selected, fetch its detailed information
+        // Check if a specific group has been selected by looking for a 'group_id' parameter in the URL
         if (isset($_GET['group_id'])) {
             try {
+                // Prepare a statement to select the detailed information for the specified rental group
                 $stmt = $conn->prepare("SELECT * FROM RentalGroup WHERE Code = :code");
+                // Bind the 'group_id' URL parameter to the prepared statement as an integer
                 $stmt->bindParam(':code', $_GET['group_id'], PDO::PARAM_INT);
+                // Execute the prepared statement
                 $stmt->execute();
+                // Fetch the detailed information for the selected group
                 $groupDetails = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
+                // If an error occurs while fetching details, output the error message and exit the script
                 echo "Error: " . $e->getMessage();
                 exit;
             }
 
-            // Display details if a group is selected
+            // If details for the group are found, display them in a table
             if ($groupDetails): ?>
+                <!-- Heading for the group details section -->
                 <h3>Details for Group <?php echo htmlspecialchars($_GET['group_id']); ?></h3>
+                <!-- Table to display the detailed information for the group -->
                 <table class="group-details-table">
+                    <!-- Table headers -->
                     <tr>
                         <th>Parking</th>
                         <th>Accessibility</th>
@@ -66,6 +85,7 @@ try {
                         <th>Laundry</th>
                         <th>Type</th>
                     </tr>
+                    <!-- Table row displaying the information for the group -->
                     <tr>
                         <td><?php echo htmlspecialchars($groupDetails['Parking']); ?></td>
                         <td><?php echo htmlspecialchars($groupDetails['Accessibility']); ?></td>
@@ -76,15 +96,17 @@ try {
                         <td><?php echo htmlspecialchars($groupDetails['typeAcc']); ?></td>
                     </tr>
                 </table>
-            <?php endif;
-        }
+            <?php endif; // End if statement for group details
+        } // End if statement for checking 'group_id'
         ?>
     </div>
 </section>
 
+<!-- Include the footer HTML from an external  HTML file -->
 <?php include 'footer.html'; ?>
 
 </body>
 </html>
+
 
 

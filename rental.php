@@ -5,45 +5,51 @@
 <!-- This link gives access to homepage
     http://localhost/RentalSite/rental.php -->
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- The viewport meta tag ensures the site is mobile responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <!-- Title of the page shown in the browser tab -->
+    <title>Rental</title>
 
-    <!-- linking the css file to rental.php so that it automatically gets the header, footer, and other UI changes -->
+    <!-- Linking the external CSS file for consistent styling across the website -->
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
-<!-- including the header -->
+<!-- Including the header section from an external HTML file -->
 <?php include 'header.html'; ?>
 
+    <!-- Section for welcoming -->
     <section class="showcase">
         <div class="container">
+            <!-- Main heading for the showcase area -->
             <h1>Welcome to Your New Rental Experience</h1>
+            <!-- slogan -->
             <p>Find your perfect property today</p>
         </div>
     </section>
 
-    <!-- space after the image and before footnote -->
+    <!-- Section for introduction -->
     <section class="content-space">
-    <div class="container">
-        <!-- Add your text or any other content here -->
-        <h2>Discover Your Ideal Home</h2>
-        <p>Explore a diverse selection of properties tailored to fit your lifestyle. Whether you're looking for a cozy studio apartment 
-            or a spacious family house, our Rental Management System simplifies your search. 
-            Update your rental group preferences with ease, browse through detailed listings, and compare average rents to find the 
-            best match. Start your journey towards a hassle-free rental experience with us today!</p>
-    </div>
+        <div class="container">
+            <!-- Heading for the content section -->
+            <h2>Discover Your Ideal Home</h2>
+            <!-- Paragraph explaining the features of the site -->
+            <p>Explore a diverse selection of properties tailored to fit your lifestyle. Whether you're looking for an apartment 
+                or a cozy house, our Rental Management System simplifies your search. 
+                Update your rental group preferences with ease, browse through detailed listings, and compare average rents to find the 
+                best match. Start your journey towards a hassle-free rental experience with us today!</p>
+        </div>
     </section>
 
-    <!-- including the footnote -->
+    <!-- Including the footer section from an external HTML file -->
     <?php include 'footer.html'; ?>
 
 </body>
 </html>
+
 
 
 

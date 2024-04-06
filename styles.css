@@ -1,66 +1,76 @@
 /* ------------------------------------------ GLOBAL STYLES ------------------------------------------- */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets the default font for the body */
+  line-height: 1.6; 
+  margin: 0; 
+  padding: 0; /* Removes default padding from the body */
 }
+/* Container class used for main content area, constrains width and centers content */
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+  width: 80%; 
+  margin: auto; 
+  overflow: hidden; /* Prevents content from overflowing the container */
 }
 
-
+/* Ensures the html element takes full height */
 html {
-  height: 100%;
+height: 100%;
 }
 
+/* Styles for body to enable flex display for footer positioning */
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+display: flex; /* Enables flexbox layout mode */
+flex-direction: column; 
+min-height: 100%; /* Ensures minimum height for flex children */
 }
 
 /* ------------------------------------------ HEADER SECTION ------------------------------------------- */
 header {
-    background: #50b3a2;
-    color: white;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #e8491d 3px solid;
+  background: #50b3a2; /* Sets background color */
+  color: white; 
+  padding-top: 30px; /* Adds padding at the top of the header */
+  min-height: 70px; 
+  border-bottom: #e8491d 3px solid; /* Adds a solid border at the bottom */
 }
+/* Style for anchor tags within header */
 header a {
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
+  color: #ffffff; 
+  text-decoration: none; /* Removes underline from links */
+  text-transform: uppercase; 
+  font-size: 16px; /* Sets font size */
 }
+/* Removes default padding and list styling for unordered lists in the header */
 header ul {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
 }
+/* Displays list items inline and adds horizontal padding for spacing */
 header li {
-    display: inline;
-    padding: 0 20px 0 20px;
+  display: inline;
+  padding: 0 20px 0 20px;
 }
+/* Branding styles for the website's name or logo */
 header #branding {
-    float: left;
+  float: left; 
 }
+/* Removes default margin for heading within branding for clean alignment */
 header #branding h1 {
-    margin: 0;
+  margin: 0;
 }
+/* Navigation styling */
 header nav {
-    float: right;
-    margin-top: 10px;
+  float: right; /* Aligns navigation to the right */
+  margin-top: 10px; 
 }
+/* Highlights the text for the current page and active links in the header */
 header .highlight, header .current a {
-    color: #e8491d;
-    font-weight: bold;
+  color: #e8491d; /* Changes text color for emphasis */
+  font-weight: bold; 
 }
+/* Changes for link items on hover */
 header a:hover {
-    color: #ffffff;
-    font-weight: bold;
+  color: #ffffff; /* Keeps text color white on hover */
+  font-weight: bold; 
 }
 
 /* ------------------------------------------ SHOWCASE SECTION ------------------------------------------- */
@@ -77,7 +87,7 @@ header a:hover {
 }
 
 .showcase h1, .showcase p {
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Add shadow to text for better visibility */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Adds shadow to text for better visibility */
 }
 
 .showcase h1 {
@@ -101,9 +111,9 @@ header a:hover {
 
 /* ------------------------------------------ CONTENT SPACE SECTION for main page ------------------------------------------- */
 .content-space {
-    padding: 50px 0; /* Adjust the value as needed for spacing */
-    background: #f4f4f4; /* Optional: if you want a different background color */
-    text-align: center; /* Optional: if you want to center the text */
+    padding: 50px 0; /* for spacing */
+    background: #f4f4f4; /* background color */
+    text-align: center; /* centering the text */
 }
 
 /* Ensures that the content takes up the full space and pushes the footer down */
@@ -115,23 +125,23 @@ header a:hover {
 footer {
     background: #333;
     color: #fff;
-    padding: 20px 0; /* Reduced overall padding */
+    padding: 20px 0; /* Reducing overall padding */
     border-top: #e8491d 3px solid;
   }
   
   .footer-content {
     display: flex;
-    justify-content: space-around; /* Centered content since there are fewer items */
-    align-items: center; /* Align items vertically in the center */
-    text-align: center; /* Center text alignment */
+    justify-content: space-around; /* Centering content since there are fewer items */
+    align-items: center; /* Aligning items vertically in the center */
+    text-align: center; /* Centering text alignment */
   }
   
   .footer-section {
-    padding: 0 15px; /* Adjust padding to reduce whitespace */
+    padding: 0 15px; /* reducing whitespace */
   }
   
   .footer-section h2, .footer-section p {
-    margin: 5px 0; /* Reduce margin between elements */
+    margin: 5px 0; /* Reducing margin between elements */
   }
   
   .footer-section.about,
@@ -141,38 +151,31 @@ footer {
   
   .footer-bottom {
     text-align: center;
-    padding: 10px 20px; /* Reduced bottom padding */
+    padding: 10px 20px; /* bottom padding */
     background: #222;
     color: #fff;
-    font-size: 0.8em; /* Reduce font size if needed */
+    font-size: 0.8em; /*font size */
   }
   
   /* ------------------------------------------ RESPONSIVE DESIGN FOR FOOTER ------------------------------------------- */
   @media (max-width: 768px) {
     .footer-content {
-      flex-direction: column; /* Stack footer sections on top of each other */
+      flex-direction: column; /* Stacks footer sections on top of each other */
     }
   
     .footer-section {
-      margin-bottom: 20px; /* Add space between stacked sections */
+      margin-bottom: 20px; /* Adds space between stacked sections */
     }
   
     .footer-bottom {
-      font-size: 0.7em; /* Even smaller font size for smaller screens */
+      font-size: 0.7em; /* smaller font size for smaller screens */
     }
   }
 
 
 /* ------------------------------------------ TABLE FOR PROPERTIES.PHP ------------------------------------------- */
-  /* Simple CSS to make the table look nicer */
-  /* body { font-family: Arial, sans-serif; }
-  table { width: 100%; border-collapse: collapse; }
-  th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
-  th { background-color: #f2f2f2; }
-  tr:hover { background-color: #e8f4ff; } */
 
-
-  /* Table base styles */
+/* Sets the base properties for tables, including full width, collapsed borders, margin, font size, and a subtle shadow for depth */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -182,6 +185,7 @@ table {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Styles for table headers and cells with padding and default text alignment */
 th,
 td {
   padding: 12px 15px;
@@ -189,65 +193,63 @@ td {
   border-bottom: 1px solid #dddddd;
 }
 
+/* Header cells have a distinct background and color for contrast against data cells, also bold text for emphasis */
 th {
   background-color: #009879;
   color: #ffffff;
   font-weight: bold;
 }
 
+/* Zebra-striping for rows for better readability */
 tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 
+/* Last row has a solid bottom border for a defined end to the table */
 tr:last-of-type {
   border-bottom: 2px solid #009879;
 }
 
+/* Highlight row on hover to indicate interactivity */
 tr:hover {
   background-color: #f1f1f1;
 }
 
-/* Responsive table */
+/* Responsive styling for tables on smaller screens */
 @media screen and (max-width: 600px) {
+  /* Adjusts table layout for mobile viewing */
   table {
     border: 0;
   }
 
-  table caption {
-    font-size: 1.3em;
-  }
-
+  /* Adjusts the thead for mobile, effectively hiding it since it's not needed for the stacked representation of rows */
   table thead {
-    border: none;
     clip: rect(0 0 0 0);
     height: 1px;
-    margin: -1px;
     overflow: hidden;
-    padding: 0;
     position: absolute;
-    width: 1px;
   }
 
+  /* Treats each row as a block element, stacking them vertically */
   table tr {
-    border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: 0.625em;
   }
 
+  /* Stacks each cell to display as a block and aligns text to the right, making it suitable for mobile */
   table td {
-    border-bottom: 1px solid #ddd;
     display: block;
-    font-size: 0.8em;
     text-align: right;
   }
 
+  /* Uses a pseudo-element to prepend the label (from data-label attribute) to the content in each td for mobile */
   table td::before {
     content: attr(data-label);
     float: left;
     font-weight: bold;
-    text-transform: uppercase;
   }
 
+  /* Removes the border for the last cell in each block for a cleaner look */
   table td:last-child {
     border-bottom: 0;
   }
@@ -257,50 +259,55 @@ tr:hover {
 
 /* ------------------------------------------ RENTAL GROUPS LIST ------------------------------------------- */
 .rental-groups-list {
-  list-style-type: none;
+  list-style-type: none; /* Removes bullet points from the list */
   padding: 0;
-  margin: 0;
-  text-align: left;
+  margin: 0; 
+  text-align: left; /* Aligns text to the left */
 }
 
+/* Individual list items background and spacing */
 .rental-groups-list li {
   background: #f4f4f4;
   margin-bottom: 5px;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 10px; 
+  border-radius: 5px; /* Rounds the corners of the list items */
 }
 
+/* Link styling within each list item */
 .rental-groups-list li a {
   text-decoration: none;
   color: #333;
-  font-weight: bold;
+  font-weight: bold; /* Bold font for emphasis */
 }
 
+/* Hover effect for links */
 .rental-groups-list li a:hover {
-  color: #e8491d;
+  color: #e8491d; /* Changes text color on hover for visual feedback */
 }
 
 /* ------------------------------------------ RENTAL GROUP DETAILS TABLE ------------------------------------------- */
 .group-details-table {
-  width: 100%;
+  width: 100%; 
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 20px; /* Adds space above the table */
 }
 
+/* Shared styles for table headers and cells */
 .group-details-table th,
 .group-details-table td {
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; /* Adds a light border to the bottom of each cell */
 }
 
+/* Header-specific styles */
 .group-details-table th {
-  background-color: #50b3a2;
+  background-color: #50b3a2; /* Teal background for header cells */
   color: #fff;
 }
 
 .group-details-table tr:hover {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5; /* Light grey background on hover */
 }
 
 
