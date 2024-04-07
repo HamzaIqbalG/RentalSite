@@ -9,10 +9,7 @@ include 'db_connection.php';
 $avgRentHouses = $avgRentApartments = $avgRentRooms = 0;
 
 
-// A more accurate way would've been to have a "TYPE" column in Properties table where you
-//have the type of living space written. Then you can easily match the rent with the specific place and calculate
-//the average rent for each category. Unfortunately, I don't have that on my database on XAMPP that I submitted.
-//I hope this still shows you I know what to do...
+//fetches data from database
 try {
     // Get the average rent for houses
     $stmt = $conn->query("SELECT AVG(Cost) AS AverageRent FROM Property WHERE Type = 'House'");
