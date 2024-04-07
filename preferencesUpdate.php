@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php endif; ?>
 
 <!-- updates the preferences -->
-<form action="update_preferences.php" method="post">
+<form action="preferencesUpdate.php" method="post">
     <div>
         <label for="groupCode">Group Code:</label>
         <input type="text" id="groupCode" name="groupCode" required>

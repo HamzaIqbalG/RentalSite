@@ -43,7 +43,7 @@ try {
             <?php foreach ($rentalGroups as $group): ?>
             <li>
                 <!-- Create a link that passes the group's code as a parameter in the URL -->
-                <a href="rental_groups.php?group_id=<?php echo htmlspecialchars($group['Code']); ?>">
+                <a href="rentalGroups.php?group_id=<?php echo htmlspecialchars($group['Code']); ?>">
                     <!-- Display the group's code with special characters converted to HTML entities to prevent XSS -->
                     Group <?php echo htmlspecialchars($group['Code']); ?>
                 </a>
