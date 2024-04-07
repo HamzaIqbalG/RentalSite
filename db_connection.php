@@ -20,4 +20,3 @@ try {
   exit('Database connection error'); // generic error message to the user
 }
 ?>
-

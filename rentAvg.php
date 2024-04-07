@@ -1,5 +1,5 @@
 <!-- Displays a table with the average monthly rent for houses, apartments, and rooms. -->
-<!-- http://localhost/RentalSite/average_rents.php -->
+<!-- http://localhost/RentalSite/rentAvg.php -->
 
 
 <?php

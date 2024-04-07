@@ -1,5 +1,5 @@
 <!-- Allows an existing rental group to update their preferences. -->
-<!-- http://localhost/RentalSite/update_preferences.php -->
+<!-- http://localhost/RentalSite/preferencesUpdate.php -->
 
 
 

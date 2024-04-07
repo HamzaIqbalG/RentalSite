@@ -1,6 +1,6 @@
 <!--Shows all rental groups and allows users to select one to view details. -->
 
-<!-- http://localhost/RentalSite/rental_groups.php -->
+<!-- http://localhost/RentalSite/rentalGroups.php -->
 
 <?php
 // Include the database connection script
