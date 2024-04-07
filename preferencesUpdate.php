@@ -63,16 +63,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
+<!-- adding the header -->
 <?php include 'header.html'; ?>
 
 <section class = 'content-wrapper'>
     <div class = 'container'>
     <h2>Update Rental Group Preferences</h2>
 
+<!-- sends the message -->
 <?php if ($message): ?>
     <p><?php echo $message; ?></p>
 <?php endif; ?>
 
+<!-- updates the preferences -->
 <form action="update_preferences.php" method="post">
     <div>
         <label for="groupCode">Group Code:</label>
@@ -114,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </section>
 
+<!-- adding the footer at the end of the page -->
 <?php include 'footer.html'; ?>
 
 </body>
