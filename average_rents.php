@@ -39,7 +39,7 @@ try {
     <!-- The title of the page, which will appear on the browser tab -->
     <title>Average Rents</title>
     <!-- Linking the external CSS file for styling the page -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 

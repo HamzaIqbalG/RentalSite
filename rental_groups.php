@@ -25,7 +25,7 @@ try {
     <!-- Title for the rental groups page -->
     <title>Rental Groups</title>
     <!-- Link to the external CSS for styling -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 

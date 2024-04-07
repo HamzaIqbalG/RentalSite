@@ -15,7 +15,7 @@
     <title>Rental</title>
 
     <!-- Linking the external CSS file for consistent styling across the website -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 <!-- Including the header section from an external HTML file -->

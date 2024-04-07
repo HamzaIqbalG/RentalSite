@@ -159,10 +159,10 @@ INSERT INTO Person VALUES
 INSERT INTO RentalGroup VALUES
 (1, 'Y', 'Wheelchair ramp', 1800.00, 3, 2, 'Y', 'Apartment'),
 (2, 'N', NULL, 1950.23, 2, 1, 'N', 'House'),
-(3, 'Y', 'Elevator', 3000.00, 3, 2, 'Y', 'Condo'),
-(4, 'N', NULL, 2500.00, 1, 1, 'N', 'Studio'),
-(5, 'Y', 'Elevator', 2130.00, 4, 3, 'Y', 'Penthouse'),
-(6, 'N', NULL, 1500.00, 2, 1, 'N', 'Townhouse');
+(3, 'Y', 'Elevator', 3000.00, 3, 2, 'Y', 'House'),
+(4, 'N', NULL, 2500.00, 1, 1, 'N', 'Apartment'),
+(5, 'Y', 'Elevator', 2130.00, 4, 3, 'Y', 'Room'),
+(6, 'N', NULL, 1500.00, 2, 1, 'N', 'Room');
 
 -- Inserting data into Manager table
 -- Assuming managers are also in the Person table
