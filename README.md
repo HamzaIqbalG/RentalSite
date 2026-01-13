@@ -1,40 +1,71 @@
-🏠 RentalSite
-RentalSite is a lightweight web application for managing rental properties and tenant groups. It provides a clean interface for listing properties, updating preferences, and automating rent calculations. Built with PHP and MySQL on the backend, and styled with HTML/CSS for a responsive frontend.
+# 🏠 RentalSite
 
-🔧 Features
-Property Listings: View and manage available rental units
+**RentalSite** is a lightweight web application for managing rental properties, tenant groups, and rental preferences. It provides a clean interface for viewing listings, updating tenant information, and automating rent‑related calculations.  
+Built with **PHP + MySQL** on the backend and **HTML/CSS** on the frontend.
 
-Rental Groups: Organize tenants into groups for shared leases
+---
 
-Preferences Update: Modify rental preferences and tenant details
+## 🔧 Features
 
-Automated Rent Averages: Calculate average rent across listings
+- **Property Listings**  
+  Browse and manage available rental units.
 
-Streamlined UI: Clean, intuitive interface for property managers
+- **Rental Groups**  
+  Organize tenants into groups for shared leases.
 
-🛠️ Tech Stack
-Backend: PHP, MySQL
+- **Preferences Management**  
+  Update rental preferences and tenant details.
 
-Frontend: HTML, CSS
+- **Automated Rent Averages**  
+  Calculate average rent across all listings.
 
-Database: rentalDB.sql schema for property and tenant data
+- **Streamlined UI**  
+  Clean, minimal interface with reusable layout components.
 
-📁 File Overview
-File/Folder	Purpose
-db_connection.php	Database connection setup
-rentalDB.sql	SQL schema for rental data
-properties.php	Displays property listings
-rentalGroups.php	Manages rental groups
-preferencesUpdate.php	Updates tenant preferences
-rentAvg.php	Calculates average rent
-images/	UI assets
-main.css	Stylesheet
-header.html / footer.html	Page layout components
-🚀 Getting Started
-Clone the repository
+---
 
-Import rentalDB.sql into your MySQL server
+## 🛠️ Tech Stack
 
-Update db_connection.php with your DB credentials
+- **Backend:** PHP, MySQL  
+- **Frontend:** HTML, CSS  
+- **Database:** `rentalDB.sql` schema for properties, groups, and preferences
 
-Run the app on a local PHP server (e.g., XAMPP, MAMP)
+---
+
+## 📁 Project Structure
+
+| File/Folder              | Purpose |
+|--------------------------|---------|
+| `db_connection.php`      | Database connection configuration |
+| `rentalDB.sql`           | SQL schema for rental data |
+| `properties.php`         | Displays property listings |
+| `rentalGroups.php`       | Manages rental groups |
+| `preferencesUpdate.php`  | Updates tenant preferences |
+| `rentAvg.php`            | Computes average rent |
+| `images/`                | UI assets |
+| `main.css`               | Global stylesheet |
+| `header.html` / `footer.html` | Shared layout components |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/HamzaIqbalG/RentalSite.git
+```
+
+### 2. Import the database
+Import `rentalDB.sql` into your MySQL server.
+
+### 3. Configure database credentials
+Update the values in `db_connection.php` to match your local MySQL setup.
+
+### 4. Run the application
+Use any local PHP server (XAMPP, MAMP, or PHP’s built‑in server):
+
+```bash
+php -S localhost:8000
+
+
+
